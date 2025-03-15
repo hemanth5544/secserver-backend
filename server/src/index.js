@@ -89,7 +89,9 @@ db.serialize(() => {
 app.use('/api',authRoutes)
 app.use('/uploads', express.static('uploads'));  
 
-
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is up and running!');
+});
 
 
 const PORT = process.env.PORT || 3000;
